@@ -1,17 +1,170 @@
-# hm_shop
+# HM Shop - 美荟商城
 
-A new Flutter project.
+一个基于 Flutter 开发的移动端电商应用，用于学习和实践 Flutter 开发技术。
 
-## Getting Started
+## 项目简介
 
-This project is a starting point for a Flutter application.
+HM Shop（美荟商城）是一个功能完整的电商 App，包含首页商品展示、分类浏览、购物车、个人中心等核心模块，支持用户登录认证和 Token 管理。
 
-A few resources to get you started if this is your first Flutter project:
+## 截图
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-29-image.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# hm_shop
+![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-42-image.png)
+
+![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-50-image.png)
+
+## 技术栈
+
+| 技术                 | 版本         | 说明        |
+| ------------------ | ---------- | --------- |
+| Flutter            | SDK ^3.9.2 | 跨平台 UI 框架 |
+| Dart               | ^3.9.2     | 开发语言      |
+| GetX               | ^4.7.3     | 状态管理      |
+| Dio                | ^5.9.0     | 网络请求      |
+| shared_preferences | ^2.5.4     | 本地存储      |
+| carousel_slider    | ^5.1.1     | 轮播图组件     |
+
+## 项目结构
+
+```
+lib/
+├── api/                    # 接口层
+│   ├── home.dart          # 首页相关接口
+│   ├── login.dart         # 登录相关接口
+│   └── mine.dart          # 个人中心接口
+├── compose/               # 复合组件
+│   ├── Home/              # 首页组件
+│   │   ├── Category.dart  # 分类组件
+│   │   ├── Hot.dart       # 热门推荐
+│   │   ├── MoreList.dart  # 更多列表
+│   │   ├── Slider.dart    # 轮播图
+│   │   └── Suggestion.dart# 推荐商品
+│   └── Mine/              # 我的页面组件
+│       └── Like.dart      # 猜你喜欢
+├── constants/             # 常量定义
+│   └── index.dart         # 全局常量与接口地址
+├── pages/                 # 页面
+│   ├── Cart/              # 购物车页
+│   ├── Category/          # 分类页
+│   ├── Home/              # 首页
+│   ├── Login/             # 登录页
+│   ├── Main/              # 主框架页（底部导航）
+│   └── Mine/              # 我的页面
+├── routes/                # 路由管理
+│   └── index.dart         # 路由配置
+├── stores/                # 状态管理
+│   ├── TokenManger.dart   # Token 管理器
+│   └── UserControl.dart   # 用户状态控制
+├── utils/                 # 工具类
+│   ├── DioRequest.dart    # Dio 网络请求封装
+│   └── ToastUtils.dart    # Toast 提示工具
+├── viewmodels/            # 视图模型
+│   ├── home.dart          # 首页数据模型
+│   └── login.dart         # 登录数据模型
+└── main.dart              # 应用入口
+```
+
+## 功能模块
+
+### 🏠 首页
+
+- 轮播图广告展示
+- 商品分类导航
+- 热门推荐商品
+- 特惠商品列表
+- 猜你喜欢（无限滚动）
+
+### 📂 分类
+
+- 商品分类浏览
+
+### 🛒 购物车
+
+- 购物车商品管理
+
+### 👤 我的
+
+- 用户登录/退出
+- 会员信息展示
+- 我的订单
+- 我的收藏
+- 猜你喜欢
+
+## 环境要求
+
+- Flutter SDK: ^3.9.2
+- Dart SDK: ^3.9.2
+- Android SDK Build-Tools: 35.0.0
+- Android Studio / VS Code
+
+## 快速开始
+
+### 1. 克隆项目
+
+```bash
+git clone <repository-url>
+cd hm_shop
+```
+
+### 2. 安装依赖
+
+```bash
+flutter pub get
+```
+
+### 3. 运行项目
+
+```bash
+flutter run
+```
+
+### 4. 热重载开发
+
+项目运行后可使用以下快捷键：
+
+- `r` - 热重载
+- `R` - 热重启
+- `q` - 退出应用
+
+## 接口配置
+
+API 基础地址配置在 `lib/constants/index.dart` 中：
+
+```dart
+class GlobalConstants {
+  static const String BASE_URL = "https://meikou-api.itheima.net";
+  static const int TIME_OUT = 10;
+  static const String SUCCESS = "1";
+  static const String TOKEN_KEY = "hm_shop_token";
+}
+```
+
+## 路由配置
+
+应用使用 Flutter 命名路由：
+
+| 路由       | 页面        | 说明         |
+| -------- | --------- | ---------- |
+| `/`      | MainPage  | 主页面（含底部导航） |
+| `/login` | LoginPage | 登录页面       |
+
+## 网络请求
+
+项目基于 Dio 封装了统一的网络请求工具：
+
+- 自动注入 Token 到请求头
+- 统一响应处理
+- 错误拦截与提示
+- 超时配置
+
+## 状态管理
+
+使用 GetX 进行状态管理：
+
+- `Usercontrol` - 用户信息状态
+- `TokenManager` - Token 持久化管理
+
+## License
+
+本项目仅用于学习目的。
