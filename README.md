@@ -8,11 +8,11 @@ HM Shop（美荟商城）是一个功能完整的电商 App，包含首页商品
 
 ## 截图
 
-![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-29-image.png)
+![](./READMEPIC/image.png)
 
-![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-42-image.png)
+![](./READMEPIC/image%20copy.png)
 
-![](/Users/easyimpr/Library/Application%20Support/marktext/images/2025-12-10-15-46-50-image.png)
+![](./READMEPIC/image%20copy%202.png)
 
 ## 技术栈
 
